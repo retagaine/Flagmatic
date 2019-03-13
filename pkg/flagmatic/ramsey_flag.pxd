@@ -33,20 +33,20 @@ from flag cimport Flag
 DEF MAX_NUMBER_OF_EDGE_INTS = 256
 DEF MAX_NUMBER_OF_VERTICES = 35
 
-cdef class NewHypergraphFlag (Flag):
+cdef class RamseyFlag (Flag):
 
   cdef int _n
   cdef int _r
-  cdef bint _oriented
-  cdef int _multiplicity
+  cdef int _num_colors
   cdef int _t
   cdef readonly bint is_degenerate
   cdef readonly bint _certified_minimal_isomorph
   cdef readonly int ne
   cdef int _edges[MAX_NUMBER_OF_EDGE_INTS]
-  cpdef is_labelled_isomorphic(self, NewHypergraphFlag other)
-  cdef NewHypergraphFlag c_induced_subgraph(self, int *verts, int num_verts)
-  cdef int c_has_subgraph (self, NewHypergraphFlag h)
+  cdef int _colorings[MAX_NUMBER_OF_EDGE_INTS]
+  cpdef is_labelled_isomorphic(self, RamseyFlag other)
+  cdef RamseyFlag c_induced_subgraph(self, int *verts, int num_verts)
+  cdef int c_has_subgraph (self, RamseyFlag h)
 
 cdef class combinatorial_info_block:
   cdef int np

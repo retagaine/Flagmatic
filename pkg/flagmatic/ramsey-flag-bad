@@ -42,7 +42,6 @@ include "cdefs.pxi"
 DEF MAX_NUMBER_OF_EDGE_INTS = 256
 DEF MAX_NUMBER_OF_VERTICES = 35
 
-
 from libc.stdlib cimport malloc, calloc, realloc, free
 from libc.string cimport memset
 
@@ -55,25 +54,15 @@ from sage.rings.all import Integer, QQ, ZZ
 from sage.matrix.all import matrix, block_matrix
 from sage.modules.misc import gram_schmidt
 
+cdef class RamseyFlag (Flag):
 
 
-cdef class HypergraphFlag (Flag):
-
-
-        def __init__(self, representation=None, r=4, oriented=False, multiplicity=1):
-
-                if oriented and r != 2:
-                        raise NotImplementedError("only 2-graphs can be oriented.")
-
-                if multiplicity < 1:
-                        raise ValueError
-
-                if not isinstance(oriented, bool):
-                        raise ValueError
+        def __init__(self, representation=None, r=2, num_colors=2):
 
                 self._r = r
-                self._oriented = oriented
-                self._multiplicity = multiplicity
+                # working in the scheme of blow-up graphs, there is also
+                # the possibility of an uncolored edge. see Lidicky, Pfender 2017
+                self._num_colors = num_colors + 1
                 self._certified_minimal_isomorph = False
 
                 if representation is None:
@@ -105,10 +94,12 @@ cdef class HypergraphFlag (Flag):
                         cdef int i
                         edge_list = []
 
-                        for i in range(0, self._r * self.ne, self._r):
+                        for i in range(0, (self._r + 1) * self.ne, self._r + 1):
                                 es = []
                                 for j in range(self._r):
                                         es.append(self._edges[i + j])
+                                # the color:
+                                es.append(self._edges[i + self._r])
                                 edge_list.append(es)
 
                         return tuple(edge_list)
@@ -131,44 +122,17 @@ cdef class HypergraphFlag (Flag):
 
                         self._r = value
 
-
-        property oriented:
-                """
-                Whether the order of vertices within an edge is significant.
-                """
-
+        property num_colors:
                 def __get__(self):
-                        return self._oriented
+                        return self._num_colors - 1
 
                 def __set__(self, value):
-
                         self._require_mutable()
 
-                        if not isinstance(value, bool):
+                        if not isinstance(value, int):
                                 raise ValueError
 
-                        self._oriented = value
-
-
-        # TODO: sanity checking
-
-        property multiplicity:
-                """
-                The maximum number of parallel edges allowed.
-                """
-
-                def __get__(self):
-                        return self._multiplicity
-
-                def __set__(self, value):
-
-                        self._require_mutable()
-
-                        if value < 1:
-                                raise ValueError
-
-                        self._multiplicity = value
-
+                        self._num_colors = value + 1
 
         property n:
                 """
@@ -226,17 +190,17 @@ cdef class HypergraphFlag (Flag):
                 if (self.ne + 1) * self._r > MAX_NUMBER_OF_EDGE_INTS:
                         raise NotImplementedError("Too many edges.")
 
-                if (any([e < 1 for e in edge])):
+                if (any([e < 1 for e in edge[:-1]])):
                         raise ValueError
-                if (any([e > self._n for e in edge])):
+                if (any([e > self._n for e in edge[:-1]])):
                         raise ValueError
 
-                for i in range(self._r):
+                for i in range(self._r + 1):
                         self._edges[self._r * self.ne + i] = edge[i]
                 self.ne += 1
 
-                for i in range(self._r):
-                        for j in range(i+1, self._r):
+                for i in range(self._r + 1):
+                        for j in range(i + 1, self._r + 1):
                                 if edge[i] == edge[j]:
                                         self.is_degenerate = True
                                         break
@@ -252,6 +216,10 @@ cdef class HypergraphFlag (Flag):
 
                 if not len(edge) == self._r:
                         raise ValueError("bad edge size.")
+
+                ##
+                ## Not entirely sure what this does
+                ##
 
                 se = tuple(sorted(edge))
                 edges = [tuple(sorted(e)) for e in self.edges]
@@ -270,7 +238,7 @@ cdef class HypergraphFlag (Flag):
 
                 cdef int i = <int?> name
                 if i < self.ne:
-                        return [self._edges[self._r * i + j] for j in range(self._r)]
+                        return [self._edges[self._r * i + j] for j in range(self._r + 1)]
                 else:
                         raise IndexError
 
@@ -328,7 +296,7 @@ cdef class HypergraphFlag (Flag):
                         raise NotImplementedError
 
                 string_rep = chr(symbols[self._n]) + ":"
-                for i in range(self._r * self.ne):
+                for i in range((self._r + 1) * self.ne):
                         string_rep += chr(symbols[self._edges[i]])
                 if self._t > 0:
                         string_rep += "(" + chr(symbols[self._t]) + ")"
@@ -343,19 +311,18 @@ cdef class HypergraphFlag (Flag):
                 Make a (mutable) copy.
                 """
                 cdef int i
-                cdef HypergraphFlag ng
+                cdef RamseyFlag ng
 
                 ng = type(self)()
                 ng._n = self._n
                 ng._r = self._r
-                ng._oriented = self._oriented
-                ng._multiplicity = self._multiplicity
+                ng._num_colors = self._num_colors
                 ng._t = self._t
                 ng.ne = self.ne
                 ng.is_degenerate = self.is_degenerate
                 ng._certified_minimal_isomorph = self._certified_minimal_isomorph
 
-                for i in range(self._r * self.ne):
+                for i in range((self._r + 1) * self.ne):
                         ng._edges[i] = self._edges[i]
 
                 return ng
@@ -368,19 +335,19 @@ cdef class HypergraphFlag (Flag):
         # TODO: check that this is best way to do this. What about is_degenerate, _certified_minimal_isomorph?
 
         def __reduce__(self):
-                return (type(self), (self._repr_(), self._r, self._oriented, self._multiplicity))
+                return (type(self), (self._repr_(), self._r))
 
 
         # TODO: work out how to make sets of these work
 
         def __hash__(self):
-                return hash(self._repr_() + str(self._r) + str(self._oriented) + str(self._multiplicity))
+                return hash(self._repr_() + str(self._r))
 
 
         # TODO: Handle < > (subgraph)
         # Not sure what happens at the moment with < and >.
 
-        def __richcmp__(HypergraphFlag self, HypergraphFlag other not None, int op):
+        def __richcmp__(RamseyFlag self, RamseyFlag other not None, int op):
 
                 if not (op == 2 or op == 3):
                         return NotImplemented
@@ -396,19 +363,15 @@ cdef class HypergraphFlag (Flag):
                         return not g1.is_labelled_isomorphic(g2)
 
 
-        cpdef is_labelled_isomorphic(self, HypergraphFlag other):
+        cpdef is_labelled_isomorphic(self, RamseyFlag other):
 
                 cdef int i
 
                 if self._r != other._r:
                         return False
 
-                if self._oriented != other._oriented:
+                if self._num_colors != other._num_colors:
                         return False
-
-                #  Should this be checked?
-                # if self._multiplicity != other._multiplicity:
-                #       return False
 
                 if self._n != other._n:
                         return False
@@ -419,26 +382,26 @@ cdef class HypergraphFlag (Flag):
                 if self.ne != other.ne:
                         return False
 
-                for i in range(self._r * self.ne):
+                for i in range((self._r + 1) * self.ne):
                         if self._edges[i] != other._edges[i]:
                                 return False
 
                 return True
 
-
+        # the default density graph should be a 0-colored edge
         @classmethod
-        def default_density_graph(cls, r=4, oriented=False):
-                edge_graph = cls("%d:" % r, r, oriented)
-                edge_graph.add_edge(range(1, r + 1))
+        def default_density_graph(cls, r=2):
+                edge_graph = cls("%d:" % r, r)
+                edge_graph.add_edge(list(range(1, r + 1)) + [0])
                 return edge_graph
 
         @classmethod
         def max_number_edges(cls, n):
-                return binomial(n, 4)
+                return binomial(n, 2)
 
 
         @classmethod
-        def generate_flags(cls, n, tg, r=4, oriented=False, multiplicity=1, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+        def generate_flags(cls, n, tg, r=2, num_colors=2, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
                 """
                 For an integer n, and a type tg, returns a list of all tg-flags on n
                 vertices, that satisfy certain constraints.
@@ -456,13 +419,10 @@ cdef class HypergraphFlag (Flag):
 
                 """
 
-                if oriented and r != 2:
-                        raise NotImplementedError
-
                 if tg is None:
                         raise ValueError
 
-                if r != tg.r or oriented != tg.oriented:
+                if r != tg.r:
                         raise ValueError
 
                 if tg.t != 0:
@@ -478,44 +438,28 @@ cdef class HypergraphFlag (Flag):
                         ntg.t = s
                         return [ntg]
 
-                max_ne = binomial(n - 1, r - 1) * multiplicity
-                max_e = binomial(n, r) * multiplicity
+                max_ne = binomial(n - 1, r - 1)
+                max_e = binomial(n, r)
 
                 new_graphs = []
                 hashes = set()
 
-                smaller_graphs = cls.generate_flags(n - 1, tg, r, oriented, multiplicity, forbidden_edge_numbers=forbidden_edge_numbers,
+                smaller_graphs = cls.generate_flags(n - 1, tg, r, num_colors, forbidden_edge_numbers=forbidden_edge_numbers,
                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
 
                 possible_edges = []
 
-                if r == 2:
-                        for x in range(1, n):
-                                possible_edges.append((x, n))
-                                if oriented:
-                                        possible_edges.append((n, x))
-                elif r > 2:
-                        for c in Combinations(range(1, n), r - 1):
-                                possible_edges.append(c + [n])
-
-                if multiplicity > 1:
-                        possible_edges = sum(([e] * multiplicity for e in possible_edges), [])
+                for c in Combinations(range(1, n), r - 1):
+                        for color in range(num_colors):
+                        possible_edges.append((c + [n]) + [color])
 
                 for sg in smaller_graphs:
-
-                        pe = sg.ne
                         ds = sg.degrees()
                         maxd = max(ds[s:] + (0,))
 
                         for ne in range(maxd, max_ne + 1):
 
                                 for nb in Combinations(possible_edges, ne):
-
-                                        # For oriented graphs, can't have bidirected edges.
-                                        # TODO: exclude these in a more efficient way!
-                                        if oriented:
-                                                if any(e in nb and (e[1], e[0]) in nb for e in possible_edges):
-                                                        continue
 
                                         ng = sg.__copy__()
                                         ng.n = n
@@ -541,8 +485,8 @@ cdef class HypergraphFlag (Flag):
 
 
         @classmethod
-        def generate_graphs(cls, n, r=4, oriented=False, multiplicity=1, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
-                return cls.generate_flags(n, cls(r=r, oriented=oriented, multiplicity=multiplicity), r, oriented, multiplicity, forbidden_edge_numbers=forbidden_edge_numbers,
+        def generate_graphs(cls, n, r=2, num_colors=2, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+                return cls.generate_flags(n, cls(r=r, num_colors=num_colors), r, num_colors, forbidden_edge_numbers=forbidden_edge_numbers,
                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
 
 
@@ -693,8 +637,9 @@ cdef class HypergraphFlag (Flag):
                 """
                 cdef int i
                 deg_list = [0 for i in range(self._n)]
-                for i in range(self._r * self.ne):
-                        deg_list[self._edges[i] - 1] += 1
+                for i in range((self._r + 1) * self.ne):
+                        if i % (self._r + 1) != 0:
+                                deg_list[self._edges[i] - 1] += 1
                 return tuple(deg_list)
 
 
@@ -748,12 +693,6 @@ cdef class HypergraphFlag (Flag):
                 If minimal=True, the minimal representative from the isomorphism class is
                 returned.
                 """
-
-                if self.oriented:
-                        raise NotImplementedError("Cannot take complements of oriented graphs.")
-
-                if self.multiplicity != 1:
-                        raise NotImplementedError("Cannot take complements of multigraphs.")
 
                 if self.is_degenerate:
                         raise NotImplementedError
@@ -832,7 +771,9 @@ cdef class HypergraphFlag (Flag):
                 if x > y:
                         y, x = x, y
 
-                for i in range(self._r * self.ne):
+                for i in range((self._r + 1) * self.ne):
+                        if i % (self._r + 1) == 0:
+                                continue
                         v = self._edges[i]
                         if v == y:
                                 self._edges[i] = x
@@ -853,7 +794,7 @@ cdef class HypergraphFlag (Flag):
                                 # if all(self._edges[self._r * i + j] == self._edges[self._r * (i + 1) + j] for j in range(self._r)):
 
                                 is_dup = True
-                                for j in range(self._r):
+                                for j in range(self._r + 1):
                                         if self._edges[self._r * i + j] != self._edges[self._r * (i + 1) + j]:
                                                 is_dup = False
                                                 break
@@ -863,8 +804,8 @@ cdef class HypergraphFlag (Flag):
                                         continue
 
                                 self.ne -= 1
-                                for k in range(self._r * i, self._r * self.ne):
-                                        self._edges[k] = self._edges[k + self._r]
+                                for k in range((self._r + 1) * i, (self._r + 1) * self.ne):
+                                        self._edges[k] = self._edges[k + self._r + 1]
 
 
 
@@ -889,26 +830,30 @@ cdef class HypergraphFlag (Flag):
                 if self._certified_minimal_isomorph:
                         return
 
-                new_edges = <int *> malloc (sizeof(int) * self._r * self.ne)
-                winning_edges = <int *> malloc (sizeof(int) * self._r * self.ne)
+                new_edges = <int *> malloc (sizeof(int) * (self._r + 1) * self.ne)
+                winning_edges = <int *> malloc (sizeof(int) * (self._r + 1) * self.ne)
 
                 p = generate_permutations_fixing(self._n, self._t, &np)
 
                 for i in range(np):
 
-                        for j in range(self._r * self.ne):
+                        for j in range((self._r + 1) * self.ne):
+                                if j % (self._r + 1) == 0:
+                                        continue
                                 new_edges[j] = p[self._n * i + self._edges[j] - 1]
 
                         raw_minimize_edges(new_edges, self.ne, self._r, self._oriented)
 
                         if i == 0:
-                                for j in range(self._r * self.ne):
+                                for j in range((self._r + 1) * self.ne):
                                         winning_edges[j] = new_edges[j]
                                 continue
 
                         is_lower = 1
 
-                        for j in range(self._r * self.ne):
+                        for j in range((self._r + 1) * self.ne):
+                                if j % (self._r + 1) == 0:
+                                        continue
                                 if new_edges[j] > winning_edges[j]:
                                         is_lower = 0
                                         break
@@ -950,13 +895,13 @@ cdef class HypergraphFlag (Flag):
                 return self.c_induced_subgraph(c_verts, num_verts)
 
 
-        cdef HypergraphFlag c_induced_subgraph(self, int *verts, int num_verts):
+        cdef RamseyFlag c_induced_subgraph(self, int *verts, int num_verts):
 
                 cdef int nm = 0, i, j
                 cdef int *e
                 cdef int got
                 cdef int te[5]
-                cdef HypergraphFlag ig = type(self)()
+                cdef RamseyFlag ig = type(self)()
 
                 if self.is_degenerate:
                         raise NotImplementedError("degenerate graphs are not supported.")
@@ -987,7 +932,7 @@ cdef class HypergraphFlag (Flag):
                 return ig
 
 
-        cdef int c_has_subgraph (self, HypergraphFlag h):
+        cdef int c_has_subgraph (self, RamseyFlag h):
                 """
                 Determines if it contains h as a subgraph. Labels are ignored.
                 """
@@ -1136,14 +1081,14 @@ cdef class HypergraphFlag (Flag):
 
                 cdef int *c
                 cdef int nc, i, j
-                cdef HypergraphFlag h, ig
+                cdef RamseyFlag h, ig
 
                 if self.is_degenerate:
                         raise NotImplementedError("degenerate graphs are not supported.")
 
                 for i in range(len(graphs)):
 
-                        h = <HypergraphFlag ?> graphs[i]
+                        h = <RamseyFlag ?> graphs[i]
 
                         if h._n > self._n:
                                 continue # vacuous condition
@@ -1252,9 +1197,9 @@ cdef class HypergraphFlag (Flag):
                         raise NotImplementedError
 
                 if self._r == 3:
-                        return self.degenerate_subgraph_density(HypergraphFlag("3:123"))
+                        return self.degenerate_subgraph_density(RamseyFlag("3:123"))
                 elif self._r == 2:
-                        return self.degenerate_subgraph_density(HypergraphFlag("2:12", 2))
+                        return self.degenerate_subgraph_density(RamseyFlag("2:12", 2))
 
 
         def degenerate_subgraph_density(self, h):
@@ -1334,7 +1279,7 @@ cdef class HypergraphFlag (Flag):
         #
 
         @classmethod
-        def flag_products (cls, graph_block gb, HypergraphFlag tg, graph_block flags1, graph_block flags2):
+        def flag_products (cls, graph_block gb, RamseyFlag tg, graph_block flags1, graph_block flags2):
 
                 cdef int *p
                 cdef int np
@@ -1349,7 +1294,7 @@ cdef class HypergraphFlag (Flag):
                 cdef int f1index, f2index
                 cdef int *grb
                 cdef int equal_flags_mode, nzcount, row
-                cdef HypergraphFlag g, t, f1, f2
+                cdef RamseyFlag g, t, f1, f2
 
                 rarray = numpy.zeros([0, 5], dtype=numpy.int)
                 row = 0
@@ -1382,7 +1327,7 @@ cdef class HypergraphFlag (Flag):
 
                         #sig_on()
 
-                        g = <HypergraphFlag> gb.graphs[gi]
+                        g = <RamseyFlag> gb.graphs[gi]
 
                         memset(grb, 0, flags1.len * flags2.len * sizeof(int))
 
@@ -1422,7 +1367,7 @@ cdef class HypergraphFlag (Flag):
                                         f1.make_minimal_isomorph()
 
                                         for j in range(flags1.len):
-                                                if f1.is_labelled_isomorphic(<HypergraphFlag> flags1.graphs[j]):
+                                                if f1.is_labelled_isomorphic(<RamseyFlag> flags1.graphs[j]):
                                                         has_f1 = 1
                                                         f1index = j
                                                         break
@@ -1438,7 +1383,7 @@ cdef class HypergraphFlag (Flag):
                                 f2.make_minimal_isomorph()
 
                                 for j in range(flags2.len):
-                                        if f2.is_labelled_isomorphic(<HypergraphFlag> flags2.graphs[j]):
+                                        if f2.is_labelled_isomorphic(<RamseyFlag> flags2.graphs[j]):
                                                 f2index = j
                                                 grb[(f1index * flags1.len) + f2index] += 1
                                                 break
@@ -1498,7 +1443,7 @@ cdef class HypergraphFlag (Flag):
 
 
 #
-# end of HypergraphFlag class definition
+# end of RamseyFlag class definition
 #
 
 
@@ -1543,7 +1488,7 @@ cdef void raw_minimize_edges(int *edges, int m, int r, bint oriented):
 
         elif r > 2:
                 for i in range(m):
-                        e = &edges[i * r]
+                        e = &edges[i * 3]
                         for p in range(r-1,0,-1):
                                 for j in range(p):
                                         if e[j] > e[j+1]:
@@ -1865,5 +1810,5 @@ def make_graph_block(graphs, n):
 def print_graph_block(graph_block gb):
 
         for i in range(gb.len):
-                g = <HypergraphFlag ?> gb.graphs[i]
+                g = <RamseyFlag ?> gb.graphs[i]
                 print str(g)
