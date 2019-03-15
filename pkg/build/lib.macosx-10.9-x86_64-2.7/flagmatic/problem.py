@@ -41,7 +41,6 @@ from sage.misc.misc import SAGE_TMP
 from copy import copy
 
 from hypergraph_flag import make_graph_block
-from new_hypergraph_flag import *
 from flag import *
 from three_graph_flag import *
 from graph_flag import *
@@ -2467,15 +2466,6 @@ def ThreeGraphProblem(order=None, **kwargs):
     sage: help(Problem)
     """
     return Problem(ThreeGraphFlag, order, **kwargs)
-
-def FourGraphProblem(order=None, **kwargs):
-    r"""
-    Returns a Problem object, that will represent a Turán-type 3-graph problem. For help
-    with Problem objects, enter
-
-    sage: help(Problem)
-    """
-    return Problem(NewHypergraphFlag, order, **kwargs)
 
 def GraphProblem(order=None, **kwargs):
     r"""

@@ -466,8 +466,7 @@ cdef class RamseyFlag (Flag):
                 possible_edges = []
 
                 for c in Combinations(range(1, n), r - 1):
-                        for color in range(num_colors):
-                                possible_edges.append((c + [n], color))
+                        possible_edges.append(c + [n])
 
                 for sg in smaller_graphs:
 
@@ -475,28 +474,35 @@ cdef class RamseyFlag (Flag):
                         maxd = max(ds[s:] + (0,))
 
                         for ne in range(maxd, max_ne + 1):
-
                                 for nb in Combinations(possible_edges, ne):
+                                        for coloring in Combinations(range(num_colors)*ne, ne):
+                                                ng = sg.__copy__()
+                                                ng.n = n
+                                                for i in range(ne):
+                                                        ng.add_edge(nb[i], coloring[i])
 
-                                        ng = sg.__copy__()
-                                        ng.n = n
-                                        for e in nb:
-                                                ng.add_edge(e[0], e[1])
+                                                if not forbidden_edge_numbers is None and ng.has_forbidden_edge_numbers(forbidden_edge_numbers, must_have_highest=True):
+                                                        continue
 
-                                        if not forbidden_edge_numbers is None and ng.has_forbidden_edge_numbers(forbidden_edge_numbers, must_have_highest=True):
-                                                continue
+                                                if not forbidden_graphs is None and ng.has_forbidden_graphs(forbidden_graphs, must_have_highest=True):
+                                                        continue
 
-                                        if not forbidden_graphs is None and ng.has_forbidden_graphs(forbidden_graphs, must_have_highest=True):
-                                                continue
+                                                if not forbidden_induced_graphs is None and ng.has_forbidden_graphs(forbidden_induced_graphs, must_have_highest=True, induced=True):
+                                                        continue
 
-                                        if not forbidden_induced_graphs is None and ng.has_forbidden_graphs(forbidden_induced_graphs, must_have_highest=True, induced=True):
-                                                continue
+                                                ng_test = ng.__copy__()
+                                                ng.make_minimal_isomorph()
 
-                                        ng.make_minimal_isomorph()
-                                        ng_hash = hash(ng)
-                                        if not ng_hash in hashes:
-                                                new_graphs.append(ng)
-                                                hashes.add(ng_hash)
+                                                ng_hash = hash(ng)
+                                                if not ng_hash in hashes:
+                                                        has_colored_isomorphism = False
+                                                        for g in new_graphs:
+                                                                if g.get_sage_graph().is_isomorphic(ng.get_sage_graph(), edge_labels=True):
+                                                                        has_colored_isomorphism = True
+                                                                        break
+                                                        hashes.add(ng_hash)
+                                                        if not has_colored_isomorphism:
+                                                                new_graphs.append(ng)
 
                 return new_graphs
 
@@ -834,9 +840,17 @@ cdef class RamseyFlag (Flag):
 
                 raw_minimize_edges(self._edges, self.ne, self._r)
 
+        def make_minimal_coloring(self):
+                cdef int i, j, k
+
+                for i in range(self.ne):
+                        for j in range(0, self.ne-i-1):
+                                if self._colorings[j] > self._colorings[j+1]:
+                                        self._colorings[j], self._colorings[j+1] = self._colorings[j+1], self._colorings[j]
+                                        for k in range(self._r):
+                                                self._edges[j*self._r + k], self._edges[(j+1)*self._r + k] = self._edges[(j+1)*self._r + k], self._edges[j*self._r + k]
 
         def make_minimal_isomorph(self):
-
                 cdef int i
                 cdef int *new_edges
                 cdef int *winning_edges
@@ -845,6 +859,7 @@ cdef class RamseyFlag (Flag):
                 cdef int np, is_lower
 
                 self._require_mutable()
+                self.make_minimal_coloring()
 
                 if self._certified_minimal_isomorph:
                         return
@@ -925,23 +940,18 @@ cdef class RamseyFlag (Flag):
                 ig.num_colors = self._num_colors
                 ig.t = 0
 
-                for i in range(self.ne):
-                        e = &self._edges[self._r * i]
-                        got = 0
-                        for j in range(num_verts):
-                                for k in range(self._r):
-                                        if e[k] == verts[j]:
-                                                got += 1
-                                                te[k] = j + 1
-                                                break
-                        # if this edge matches self._r elements in verts
-                        if got == self._r:
-                                e = &ig._edges[self._r * nm]
-                                for j in range(self._r):
-                                        e[j] = te[j]
-                                e = &ig._colorings[nm]
-                                e[0] = self._colorings[i]
-                                nm += 1
+                vs = []
+                for i in range(num_verts):
+                        vs.append(verts[i])
+                g = self.get_sage_graph()
+                h = g.subgraph(vs)
+
+                for edge in h.edges():
+                        e = &ig._edges[self._r * nm]
+                        for j in range(self._r):
+                                e[j] = edge[j]
+                        ig._colorings[nm] = int(edge[-1])
+                        nm += 1
 
                 ig.ne = nm
                 ig.minimize_edges()
@@ -1092,9 +1102,7 @@ cdef class RamseyFlag (Flag):
 
                 return False
 
-
         def has_forbidden_graphs(self, graphs, must_have_highest=False, induced=False):
-
                 cdef int *c
                 cdef int nc, i, j
                 cdef RamseyFlag h, ig
@@ -1102,9 +1110,11 @@ cdef class RamseyFlag (Flag):
                 if self.is_degenerate:
                         raise NotImplementedError("degenerate graphs are not supported.")
 
+                g = self.get_sage_graph()
                 for i in range(len(graphs)):
 
                         h = <RamseyFlag ?> graphs[i]
+                        hs = h.get_sage_graph()
 
                         if h._n > self._n:
                                 continue # vacuous condition
@@ -1115,17 +1125,15 @@ cdef class RamseyFlag (Flag):
                                 c = generate_combinations(self._n, h._n, &nc)
 
                         for j in range(nc):
+                                vs = []
+                                for k in range(h._n):
+                                        vs.append(c[j * h._n + k])
 
-                                ig = self.c_induced_subgraph(&c[j * h._n], h._n)
-
-                                if ig.ne < h.ne:
-                                        continue
-
-                                if induced and ig.ne > h.ne:
-                                        continue
-
-                                if ig.c_has_subgraph(h):
+                                if induced and g.subgraph(vs).is_isomorphic(hs, edge_labels=True):
                                         return True
+
+                                if not induced:
+                                        raise ValueError("Haven't implemented yet")
 
                 return False
 

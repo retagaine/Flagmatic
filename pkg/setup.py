@@ -78,20 +78,6 @@ setup (
 			library_dirs = [os.path.join(SAGE_ROOT, 'local/lib')],
 			extra_compile_args = ["-O3", "-Wall", "-Wno-strict-prototypes"]
 		),
-		Extension('flagmatic.new_hypergraph_flag',
-			sources=['flagmatic/new_hypergraph_flag.pyx'],
-			include_dirs = [
-				os.path.join(SAGE_ROOT, 'local/include'),
-				os.path.join(SAGE_ROOT, 'local/lib/python/site-packages/numpy/core/include'),
-				os.path.join(SAGE_ROOT, 'local/include/csage'),
-				os.path.join(SAGE_ROOT, 'devel/sage/sage/ext'),
-        			os.path.join(SAGE_ROOT, 'src/sage/ext'),
-				os.path.join(SAGE_ROOT, 'devel/sage'),
-        			os.path.join(SAGE_ROOT, 'src'),
-				numpy.get_include()],
-			library_dirs = [os.path.join(SAGE_ROOT, 'local/lib')],
-			extra_compile_args = ["-O3", "-Wall", "-Wno-strict-prototypes"]
-		),
 		Extension('flagmatic.three_graph_flag',
 			sources=['flagmatic/three_graph_flag.pyx'],
 			extra_compile_args = ["-O3", "-Wall", "-Wno-strict-prototypes"]
@@ -106,6 +92,20 @@ setup (
 		),
 		Extension('flagmatic.multigraph_flag',
 			sources=['flagmatic/multigraph_flag.pyx'],
+			extra_compile_args = ["-O3", "-Wall", "-Wno-strict-prototypes"]
+		),
+		Extension('flagmatic.ramsey_flag',
+			sources=['flagmatic/ramsey_flag.pyx'],
+			include_dirs = [
+				os.path.join(SAGE_ROOT, 'local/include'),
+				os.path.join(SAGE_ROOT, 'local/lib/python/site-packages/numpy/core/include'),
+				os.path.join(SAGE_ROOT, 'local/include/csage'),
+				os.path.join(SAGE_ROOT, 'devel/sage/sage/ext'),
+        			os.path.join(SAGE_ROOT, 'src/sage/ext'),
+				os.path.join(SAGE_ROOT, 'devel/sage'),
+        			os.path.join(SAGE_ROOT, 'src'),
+				numpy.get_include()],
+			library_dirs = [os.path.join(SAGE_ROOT, 'local/lib')],
 			extra_compile_args = ["-O3", "-Wall", "-Wno-strict-prototypes"]
 		)
 	]
