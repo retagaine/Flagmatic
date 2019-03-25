@@ -348,6 +348,15 @@ def ThreeGraphBlowupConstruction(graph, **kwargs):
         graph = ThreeGraphFlag(graph)
     return BlowupConstruction(graph, **kwargs)
 
+def FourGraphBlowupConstruction(graph, **kwargs):
+    if isinstance(graph, basestring):
+        graph = FourGraphFlag(graph)
+    return BlowupConstruction(graph, **kwargs)
+
+def FiveGraphBlowupConstruction(graph, **kwargs):
+    if isinstance(graph, basestring):
+        graph = FiveGraphFlag(graph)
+    return BlowupConstruction(graph, **kwargs)
 
 def OrientedGraphBlowupConstruction(graph, **kwargs):
     if isinstance(graph, basestring):

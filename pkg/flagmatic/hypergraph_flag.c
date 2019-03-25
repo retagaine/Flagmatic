@@ -1755,9 +1755,6 @@ static CYTHON_INLINE PyObject* __Pyx_CallUnboundCMethod1(__Pyx_CachedCFunction* 
 #define __Pyx_CallUnboundCMethod1(cfunc, self, arg)  __Pyx__CallUnboundCMethod1(cfunc, self, arg)
 #endif
 
-/* None.proto */
-static CYTHON_INLINE void __Pyx_RaiseUnboundLocalError(const char *varname);
-
 /* DictGetItem.proto */
 #if PY_MAJOR_VERSION >= 3 && !CYTHON_COMPILING_IN_PYPY
 static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key);
@@ -20161,7 +20158,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  *                         if all([e[i] in vertices for i in range(self._r)]):
  *                                 vs = []             # <<<<<<<<<<<<<<
  *                                 for i in range(self._r):
- *                                         vs.append(vertices.index(e[j]) + 1)
+ *                                         vs.append(vertices.index(e[i]) + 1)
  */
       __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1234, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
@@ -20172,7 +20169,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  *                         if all([e[i] in vertices for i in range(self._r)]):
  *                                 vs = []
  *                                 for i in range(self._r):             # <<<<<<<<<<<<<<
- *                                         vs.append(vertices.index(e[j]) + 1)
+ *                                         vs.append(vertices.index(e[i]) + 1)
  *                                 non_degenerate = True
  */
       __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_self->_r); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1235, __pyx_L1_error)
@@ -20226,12 +20223,11 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
         /* "flagmatic/hypergraph_flag.pyx":1236
  *                                 vs = []
  *                                 for i in range(self._r):
- *                                         vs.append(vertices.index(e[j]) + 1)             # <<<<<<<<<<<<<<
+ *                                         vs.append(vertices.index(e[i]) + 1)             # <<<<<<<<<<<<<<
  *                                 non_degenerate = True
  *                                 for i in range(self._r):
  */
-        if (unlikely(!__pyx_v_j)) { __Pyx_RaiseUnboundLocalError("j"); __PYX_ERR(0, 1236, __pyx_L1_error) }
-        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_e, __pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1236, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_e, __pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1236, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_10 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyList_Type_index, __pyx_v_vertices, __pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1236, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
@@ -20246,7 +20242,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  *                         if all([e[i] in vertices for i in range(self._r)]):
  *                                 vs = []
  *                                 for i in range(self._r):             # <<<<<<<<<<<<<<
- *                                         vs.append(vertices.index(e[j]) + 1)
+ *                                         vs.append(vertices.index(e[i]) + 1)
  *                                 non_degenerate = True
  */
       }
@@ -20254,7 +20250,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
 
       /* "flagmatic/hypergraph_flag.pyx":1237
  *                                 for i in range(self._r):
- *                                         vs.append(vertices.index(e[j]) + 1)
+ *                                         vs.append(vertices.index(e[i]) + 1)
  *                                 non_degenerate = True             # <<<<<<<<<<<<<<
  *                                 for i in range(self._r):
  *                                         for j in range(i+1, self._r):
@@ -20262,7 +20258,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
       __pyx_v_non_degenerate = 1;
 
       /* "flagmatic/hypergraph_flag.pyx":1238
- *                                         vs.append(vertices.index(e[j]) + 1)
+ *                                         vs.append(vertices.index(e[i]) + 1)
  *                                 non_degenerate = True
  *                                 for i in range(self._r):             # <<<<<<<<<<<<<<
  *                                         for j in range(i+1, self._r):
@@ -20428,7 +20424,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
 
         /* "flagmatic/hypergraph_flag.pyx":1238
- *                                         vs.append(vertices.index(e[j]) + 1)
+ *                                         vs.append(vertices.index(e[i]) + 1)
  *                                 non_degenerate = True
  *                                 for i in range(self._r):             # <<<<<<<<<<<<<<
  *                                         for j in range(i+1, self._r):
@@ -37468,11 +37464,6 @@ static PyObject* __Pyx__CallUnboundCMethod1(__Pyx_CachedCFunction* cfunc, PyObje
 bad:
     Py_XDECREF(args);
     return result;
-}
-
-/* None */
-static CYTHON_INLINE void __Pyx_RaiseUnboundLocalError(const char *varname) {
-    PyErr_Format(PyExc_UnboundLocalError, "local variable '%s' referenced before assignment", varname);
 }
 
 /* DictGetItem */

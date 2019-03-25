@@ -828,6 +828,8 @@ struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag;
 struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block;
 struct __pyx_obj_9flagmatic_15hypergraph_flag_graph_block;
 struct __pyx_obj_9flagmatic_16three_graph_flag_ThreeGraphFlag;
+struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag;
+struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag;
 
 /* "sage/structure/sage_object.pxd":1
  * cdef class SageObject:             # <<<<<<<<<<<<<<
@@ -906,9 +908,33 @@ struct __pyx_obj_9flagmatic_15hypergraph_flag_graph_block {
  * from hypergraph_flag cimport HypergraphFlag
  * 
  * cdef class ThreeGraphFlag (HypergraphFlag):             # <<<<<<<<<<<<<<
- * 	pass
+ *   pass
+ * 
  */
 struct __pyx_obj_9flagmatic_16three_graph_flag_ThreeGraphFlag {
+  struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag __pyx_base;
+};
+
+
+/* "flagmatic/three_graph_flag.pxd":35
+ *   pass
+ * 
+ * cdef class FourGraphFlag (HypergraphFlag):             # <<<<<<<<<<<<<<
+ *   pass
+ * 
+ */
+struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag {
+  struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag __pyx_base;
+};
+
+
+/* "flagmatic/three_graph_flag.pxd":38
+ *   pass
+ * 
+ * cdef class FiveGraphFlag (HypergraphFlag):             # <<<<<<<<<<<<<<
+ *   pass
+ */
+struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag {
   struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag __pyx_base;
 };
 
@@ -942,6 +968,34 @@ struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_ThreeGraphFlag {
   struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag __pyx_base;
 };
 static struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_ThreeGraphFlag *__pyx_vtabptr_9flagmatic_16three_graph_flag_ThreeGraphFlag;
+
+
+/* "flagmatic/three_graph_flag.pyx":70
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ * cdef class FourGraphFlag (HypergraphFlag):             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+
+struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_FourGraphFlag {
+  struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag __pyx_base;
+};
+static struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_FourGraphFlag *__pyx_vtabptr_9flagmatic_16three_graph_flag_FourGraphFlag;
+
+
+/* "flagmatic/three_graph_flag.pyx":106
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ * cdef class FiveGraphFlag (HypergraphFlag):             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+
+struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_FiveGraphFlag {
+  struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag __pyx_base;
+};
+static struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_FiveGraphFlag *__pyx_vtabptr_9flagmatic_16three_graph_flag_FiveGraphFlag;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1262,6 +1316,8 @@ static PyTypeObject *__pyx_ptype_9flagmatic_15hypergraph_flag_graph_block = 0;
 
 /* Module declarations from 'flagmatic.three_graph_flag' */
 static PyTypeObject *__pyx_ptype_9flagmatic_16three_graph_flag_ThreeGraphFlag = 0;
+static PyTypeObject *__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag = 0;
+static PyTypeObject *__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag = 0;
 #define __Pyx_MODULE_NAME "flagmatic.three_graph_flag"
 extern int __pyx_module_is_main_flagmatic__three_graph_flag;
 int __pyx_module_is_main_flagmatic__three_graph_flag = 0;
@@ -1278,12 +1334,18 @@ static const char __pyx_k_repr[] = "_repr_";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_3_123[] = "3:123";
 static const char __pyx_k_super[] = "super";
+static const char __pyx_k_4_1234[] = "4:1234";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_3_graph[] = "3-graph";
+static const char __pyx_k_4_graph[] = "4-graph";
+static const char __pyx_k_5_12345[] = "5:12345";
+static const char __pyx_k_5_graph[] = "5-graph";
 static const char __pyx_k_binomial[] = "binomial";
 static const char __pyx_k_oriented[] = "oriented";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_description[] = "description";
+static const char __pyx_k_FiveGraphFlag[] = "FiveGraphFlag";
+static const char __pyx_k_FourGraphFlag[] = "FourGraphFlag";
 static const char __pyx_k_ThreeGraphFlag[] = "ThreeGraphFlag";
 static const char __pyx_k_generate_flags[] = "generate_flags";
 static const char __pyx_k_representation[] = "representation";
@@ -1298,6 +1360,12 @@ static const char __pyx_k_forbidden_induced_graphs[] = "forbidden_induced_graphs
 static const char __pyx_k_flagmatic_2_Copyright_c_2012_E[] = "\n\nflagmatic 2\n\nCopyright (c) 2012, E. R. Vaughan. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n\n1) Redistributions of source code must retain the above copyright notice, this\nlist of conditions and the following disclaimer.\n\n2) Redistributions in binary form must reproduce the above copyright notice,\nthis list of conditions and the following disclaimer in the documentation and/or\nother materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\nANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\nANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\nANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n";
 static PyObject *__pyx_kp_s_3_123;
 static PyObject *__pyx_kp_s_3_graph;
+static PyObject *__pyx_kp_s_4_1234;
+static PyObject *__pyx_kp_s_4_graph;
+static PyObject *__pyx_kp_s_5_12345;
+static PyObject *__pyx_kp_s_5_graph;
+static PyObject *__pyx_n_s_FiveGraphFlag;
+static PyObject *__pyx_n_s_FourGraphFlag;
 static PyObject *__pyx_n_s_ThreeGraphFlag;
 static PyObject *__pyx_n_s_binomial;
 static PyObject *__pyx_n_s_cline_in_traceback;
@@ -1330,9 +1398,29 @@ static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_6defaul
 static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_8max_number_edges(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n); /* proto */
 static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_10generate_flags(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_tg, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
 static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_12generate_graphs(PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
+static int __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag___init__(struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *__pyx_v_self, PyObject *__pyx_v_representation); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_2__reduce__(struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_4description(CYTHON_UNUSED PyTypeObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_6default_density_graph(PyTypeObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_8max_number_edges(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_10generate_flags(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_tg, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_12generate_graphs(PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
+static int __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag___init__(struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *__pyx_v_self, PyObject *__pyx_v_representation); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_2__reduce__(struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_4description(CYTHON_UNUSED PyTypeObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_6default_density_graph(PyTypeObject *__pyx_v_cls); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_8max_number_edges(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_10generate_flags(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_tg, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_12generate_graphs(PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
 static PyObject *__pyx_tp_new_9flagmatic_16three_graph_flag_ThreeGraphFlag(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_9flagmatic_16three_graph_flag_FourGraphFlag(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_9flagmatic_16three_graph_flag_FiveGraphFlag(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_3;
+static PyObject *__pyx_int_4;
+static PyObject *__pyx_int_5;
 static PyObject *__pyx_tuple_;
+static PyObject *__pyx_tuple__2;
+static PyObject *__pyx_tuple__3;
 /* Late includes */
 
 /* "flagmatic/three_graph_flag.pyx":36
@@ -2082,6 +2170,7 @@ static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_12gener
  *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
  *                 return HypergraphFlag.generate_flags(n, cls(), r=3, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
  *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L1_error)
@@ -2106,6 +2195,8 @@ static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_12gener
  *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
  *                 return HypergraphFlag.generate_flags(n, cls(), r=3, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
  *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)             # <<<<<<<<<<<<<<
+ * 
+ * cdef class FourGraphFlag (HypergraphFlag):
  */
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_graphs, __pyx_v_forbidden_graphs) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_induced_graphs, __pyx_v_forbidden_induced_graphs) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
@@ -2115,6 +2206,7 @@ static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_12gener
  *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
  *                 return HypergraphFlag.generate_flags(n, cls(), r=3, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
  *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
  */
   __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -2140,6 +2232,1634 @@ static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_14ThreeGraphFlag_12gener
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("flagmatic.three_graph_flag.ThreeGraphFlag.generate_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":73
+ * 
+ * 
+ *         def __init__(self, representation=None):             # <<<<<<<<<<<<<<
+ *                 super(FourGraphFlag, self).__init__(representation=representation, r=4, oriented=False)
+ * 
+ */
+
+/* Python wrapper */
+static int __pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_representation = 0;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_representation,0};
+    PyObject* values[1] = {0};
+    values[0] = ((PyObject *)Py_None);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_representation);
+          if (value) { values[0] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 73, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_representation = values[0];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 73, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return -1;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag___init__(((struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *)__pyx_v_self), __pyx_v_representation);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag___init__(struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *__pyx_v_self, PyObject *__pyx_v_representation) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("__init__", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":74
+ * 
+ *         def __init__(self, representation=None):
+ *                 super(FourGraphFlag, self).__init__(representation=representation, r=4, oriented=False)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag));
+  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag));
+  __Pyx_INCREF(((PyObject *)__pyx_v_self));
+  __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
+  PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_representation, __pyx_v_representation) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_r, __pyx_int_4) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_oriented, Py_False) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "flagmatic/three_graph_flag.pyx":73
+ * 
+ * 
+ *         def __init__(self, representation=None):             # <<<<<<<<<<<<<<
+ *                 super(FourGraphFlag, self).__init__(representation=representation, r=4, oriented=False)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":77
+ * 
+ * 
+ *         def __reduce__(self):             # <<<<<<<<<<<<<<
+ *                 return (type(self), (self._repr_(),))
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_3__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_3__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__reduce__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_2__reduce__(((struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_2__reduce__(struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("__reduce__", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":78
+ * 
+ *         def __reduce__(self):
+ *                 return (type(self), (self._repr_(),))             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_repr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+  __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":77
+ * 
+ * 
+ *         def __reduce__(self):             # <<<<<<<<<<<<<<
+ *                 return (type(self), (self._repr_(),))
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":82
+ * 
+ *         @classmethod
+ *         def description(cls):             # <<<<<<<<<<<<<<
+ *                 return "4-graph"
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_5description(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_5description(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("description (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_4description(((PyTypeObject*)__pyx_v_cls));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_4description(CYTHON_UNUSED PyTypeObject *__pyx_v_cls) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("description", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":83
+ *         @classmethod
+ *         def description(cls):
+ *                 return "4-graph"             # <<<<<<<<<<<<<<
+ * 
+ *         @classmethod
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_kp_s_4_graph);
+  __pyx_r = __pyx_kp_s_4_graph;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":82
+ * 
+ *         @classmethod
+ *         def description(cls):             # <<<<<<<<<<<<<<
+ *                 return "4-graph"
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":86
+ * 
+ *         @classmethod
+ *         def default_density_graph(cls):             # <<<<<<<<<<<<<<
+ *                 return cls("4:1234")
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_7default_density_graph(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_7default_density_graph(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("default_density_graph (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_6default_density_graph(((PyTypeObject*)__pyx_v_cls));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_6default_density_graph(PyTypeObject *__pyx_v_cls) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("default_density_graph", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":87
+ *         @classmethod
+ *         def default_density_graph(cls):
+ *                 return cls("4:1234")             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_v_cls), __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":86
+ * 
+ *         @classmethod
+ *         def default_density_graph(cls):             # <<<<<<<<<<<<<<
+ *                 return cls("4:1234")
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.default_density_graph", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":91
+ * 
+ *         @classmethod
+ *         def max_number_edges(cls, n):             # <<<<<<<<<<<<<<
+ *                 return binomial(n, 4)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_9max_number_edges(PyObject *__pyx_v_cls, PyObject *__pyx_v_n); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_9max_number_edges(PyObject *__pyx_v_cls, PyObject *__pyx_v_n) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("max_number_edges (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_8max_number_edges(((PyTypeObject*)__pyx_v_cls), ((PyObject *)__pyx_v_n));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_8max_number_edges(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  __Pyx_RefNannySetupContext("max_number_edges", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":92
+ *         @classmethod
+ *         def max_number_edges(cls, n):
+ *                 return binomial(n, 4)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_binomial); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_n, __pyx_int_4};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_n, __pyx_int_4};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__pyx_t_3) {
+      __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
+    }
+    __Pyx_INCREF(__pyx_v_n);
+    __Pyx_GIVEREF(__pyx_v_n);
+    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_4, __pyx_v_n);
+    __Pyx_INCREF(__pyx_int_4);
+    __Pyx_GIVEREF(__pyx_int_4);
+    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_int_4);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":91
+ * 
+ *         @classmethod
+ *         def max_number_edges(cls, n):             # <<<<<<<<<<<<<<
+ *                 return binomial(n, 4)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.max_number_edges", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":96
+ * 
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_11generate_flags(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_11generate_flags(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_n = 0;
+  PyObject *__pyx_v_tg = 0;
+  PyObject *__pyx_v_forbidden_edge_numbers = 0;
+  PyObject *__pyx_v_forbidden_graphs = 0;
+  PyObject *__pyx_v_forbidden_induced_graphs = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("generate_flags (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_n,&__pyx_n_s_tg,&__pyx_n_s_forbidden_edge_numbers,&__pyx_n_s_forbidden_graphs,&__pyx_n_s_forbidden_induced_graphs,0};
+    PyObject* values[5] = {0,0,0,0,0};
+    values[2] = ((PyObject *)Py_None);
+    values[3] = ((PyObject *)Py_None);
+    values[4] = ((PyObject *)Py_None);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_tg)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("generate_flags", 0, 2, 5, 1); __PYX_ERR(0, 96, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_edge_numbers);
+          if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_graphs);
+          if (value) { values[3] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_induced_graphs);
+          if (value) { values[4] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "generate_flags") < 0)) __PYX_ERR(0, 96, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_n = values[0];
+    __pyx_v_tg = values[1];
+    __pyx_v_forbidden_edge_numbers = values[2];
+    __pyx_v_forbidden_graphs = values[3];
+    __pyx_v_forbidden_induced_graphs = values[4];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("generate_flags", 0, 2, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 96, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.generate_flags", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_10generate_flags(((PyTypeObject*)__pyx_v_cls), __pyx_v_n, __pyx_v_tg, __pyx_v_forbidden_edge_numbers, __pyx_v_forbidden_graphs, __pyx_v_forbidden_induced_graphs);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_10generate_flags(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_tg, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("generate_flags", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":97
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_INCREF(__pyx_v_n);
+  __Pyx_GIVEREF(__pyx_v_n);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_n);
+  __Pyx_INCREF(__pyx_v_tg);
+  __Pyx_GIVEREF(__pyx_v_tg);
+  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_tg);
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_r, __pyx_int_4) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_oriented, Py_False) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_forbidden_edge_numbers, __pyx_v_forbidden_edge_numbers) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":98
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_forbidden_graphs, __pyx_v_forbidden_graphs) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_forbidden_induced_graphs, __pyx_v_forbidden_induced_graphs) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":97
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ */
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":96
+ * 
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.generate_flags", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":102
+ * 
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_13generate_graphs(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_13generate_graphs(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_n = 0;
+  PyObject *__pyx_v_forbidden_edge_numbers = 0;
+  PyObject *__pyx_v_forbidden_graphs = 0;
+  PyObject *__pyx_v_forbidden_induced_graphs = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("generate_graphs (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_n,&__pyx_n_s_forbidden_edge_numbers,&__pyx_n_s_forbidden_graphs,&__pyx_n_s_forbidden_induced_graphs,0};
+    PyObject* values[4] = {0,0,0,0};
+    values[1] = ((PyObject *)Py_None);
+    values[2] = ((PyObject *)Py_None);
+    values[3] = ((PyObject *)Py_None);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_edge_numbers);
+          if (value) { values[1] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_graphs);
+          if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_induced_graphs);
+          if (value) { values[3] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "generate_graphs") < 0)) __PYX_ERR(0, 102, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_n = values[0];
+    __pyx_v_forbidden_edge_numbers = values[1];
+    __pyx_v_forbidden_graphs = values[2];
+    __pyx_v_forbidden_induced_graphs = values[3];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("generate_graphs", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 102, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.generate_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_12generate_graphs(((PyTypeObject*)__pyx_v_cls), __pyx_v_n, __pyx_v_forbidden_edge_numbers, __pyx_v_forbidden_graphs, __pyx_v_forbidden_induced_graphs);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FourGraphFlag_12generate_graphs(PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("generate_graphs", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":103
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_v_cls)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_v_n);
+  __Pyx_GIVEREF(__pyx_v_n);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_n);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_r, __pyx_int_4) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_oriented, Py_False) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_edge_numbers, __pyx_v_forbidden_edge_numbers) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":104
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)             # <<<<<<<<<<<<<<
+ * 
+ * cdef class FiveGraphFlag (HypergraphFlag):
+ */
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_graphs, __pyx_v_forbidden_graphs) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_induced_graphs, __pyx_v_forbidden_induced_graphs) < 0) __PYX_ERR(0, 103, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":103
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ */
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":102
+ * 
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FourGraphFlag.generate_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":109
+ * 
+ * 
+ *         def __init__(self, representation=None):             # <<<<<<<<<<<<<<
+ *                 super(FiveGraphFlag, self).__init__(representation=representation, r=5, oriented=False)
+ * 
+ */
+
+/* Python wrapper */
+static int __pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_representation = 0;
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_representation,0};
+    PyObject* values[1] = {0};
+    values[0] = ((PyObject *)Py_None);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_representation);
+          if (value) { values[0] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 109, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_representation = values[0];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 109, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return -1;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag___init__(((struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *)__pyx_v_self), __pyx_v_representation);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag___init__(struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *__pyx_v_self, PyObject *__pyx_v_representation) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("__init__", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":110
+ * 
+ *         def __init__(self, representation=None):
+ *                 super(FiveGraphFlag, self).__init__(representation=representation, r=5, oriented=False)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag));
+  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag));
+  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag));
+  __Pyx_INCREF(((PyObject *)__pyx_v_self));
+  __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
+  PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_representation, __pyx_v_representation) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_r, __pyx_int_5) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_oriented, Py_False) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "flagmatic/three_graph_flag.pyx":109
+ * 
+ * 
+ *         def __init__(self, representation=None):             # <<<<<<<<<<<<<<
+ *                 super(FiveGraphFlag, self).__init__(representation=representation, r=5, oriented=False)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":113
+ * 
+ * 
+ *         def __reduce__(self):             # <<<<<<<<<<<<<<
+ *                 return (type(self), (self._repr_(),))
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_3__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_3__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__reduce__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_2__reduce__(((struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_2__reduce__(struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  __Pyx_RefNannySetupContext("__reduce__", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":114
+ * 
+ *         def __reduce__(self):
+ *                 return (type(self), (self._repr_(),))             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_repr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+  __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":113
+ * 
+ * 
+ *         def __reduce__(self):             # <<<<<<<<<<<<<<
+ *                 return (type(self), (self._repr_(),))
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":118
+ * 
+ *         @classmethod
+ *         def description(cls):             # <<<<<<<<<<<<<<
+ *                 return "5-graph"
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_5description(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_5description(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("description (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_4description(((PyTypeObject*)__pyx_v_cls));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_4description(CYTHON_UNUSED PyTypeObject *__pyx_v_cls) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("description", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":119
+ *         @classmethod
+ *         def description(cls):
+ *                 return "5-graph"             # <<<<<<<<<<<<<<
+ * 
+ *         @classmethod
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_kp_s_5_graph);
+  __pyx_r = __pyx_kp_s_5_graph;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":118
+ * 
+ *         @classmethod
+ *         def description(cls):             # <<<<<<<<<<<<<<
+ *                 return "5-graph"
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":122
+ * 
+ *         @classmethod
+ *         def default_density_graph(cls):             # <<<<<<<<<<<<<<
+ *                 return cls("5:12345")
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_7default_density_graph(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_7default_density_graph(PyObject *__pyx_v_cls, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("default_density_graph (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_6default_density_graph(((PyTypeObject*)__pyx_v_cls));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_6default_density_graph(PyTypeObject *__pyx_v_cls) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("default_density_graph", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":123
+ *         @classmethod
+ *         def default_density_graph(cls):
+ *                 return cls("5:12345")             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_v_cls), __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":122
+ * 
+ *         @classmethod
+ *         def default_density_graph(cls):             # <<<<<<<<<<<<<<
+ *                 return cls("5:12345")
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.default_density_graph", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":127
+ * 
+ *         @classmethod
+ *         def max_number_edges(cls, n):             # <<<<<<<<<<<<<<
+ *                 return binomial(n, 5)
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_9max_number_edges(PyObject *__pyx_v_cls, PyObject *__pyx_v_n); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_9max_number_edges(PyObject *__pyx_v_cls, PyObject *__pyx_v_n) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("max_number_edges (wrapper)", 0);
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_8max_number_edges(((PyTypeObject*)__pyx_v_cls), ((PyObject *)__pyx_v_n));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_8max_number_edges(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  __Pyx_RefNannySetupContext("max_number_edges", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":128
+ *         @classmethod
+ *         def max_number_edges(cls, n):
+ *                 return binomial(n, 5)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_binomial); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 128, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_n, __pyx_int_5};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_n, __pyx_int_5};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 128, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__pyx_t_3) {
+      __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
+    }
+    __Pyx_INCREF(__pyx_v_n);
+    __Pyx_GIVEREF(__pyx_v_n);
+    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_4, __pyx_v_n);
+    __Pyx_INCREF(__pyx_int_5);
+    __Pyx_GIVEREF(__pyx_int_5);
+    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_int_5);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":127
+ * 
+ *         @classmethod
+ *         def max_number_edges(cls, n):             # <<<<<<<<<<<<<<
+ *                 return binomial(n, 5)
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.max_number_edges", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":132
+ * 
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_11generate_flags(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_11generate_flags(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_n = 0;
+  PyObject *__pyx_v_tg = 0;
+  PyObject *__pyx_v_forbidden_edge_numbers = 0;
+  PyObject *__pyx_v_forbidden_graphs = 0;
+  PyObject *__pyx_v_forbidden_induced_graphs = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("generate_flags (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_n,&__pyx_n_s_tg,&__pyx_n_s_forbidden_edge_numbers,&__pyx_n_s_forbidden_graphs,&__pyx_n_s_forbidden_induced_graphs,0};
+    PyObject* values[5] = {0,0,0,0,0};
+    values[2] = ((PyObject *)Py_None);
+    values[3] = ((PyObject *)Py_None);
+    values[4] = ((PyObject *)Py_None);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_tg)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("generate_flags", 0, 2, 5, 1); __PYX_ERR(0, 132, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_edge_numbers);
+          if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_graphs);
+          if (value) { values[3] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_induced_graphs);
+          if (value) { values[4] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "generate_flags") < 0)) __PYX_ERR(0, 132, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_n = values[0];
+    __pyx_v_tg = values[1];
+    __pyx_v_forbidden_edge_numbers = values[2];
+    __pyx_v_forbidden_graphs = values[3];
+    __pyx_v_forbidden_induced_graphs = values[4];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("generate_flags", 0, 2, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 132, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.generate_flags", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_10generate_flags(((PyTypeObject*)__pyx_v_cls), __pyx_v_n, __pyx_v_tg, __pyx_v_forbidden_edge_numbers, __pyx_v_forbidden_graphs, __pyx_v_forbidden_induced_graphs);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_10generate_flags(CYTHON_UNUSED PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_tg, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("generate_flags", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":133
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_INCREF(__pyx_v_n);
+  __Pyx_GIVEREF(__pyx_v_n);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_v_n);
+  __Pyx_INCREF(__pyx_v_tg);
+  __Pyx_GIVEREF(__pyx_v_tg);
+  PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_tg);
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_r, __pyx_int_5) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_oriented, Py_False) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_forbidden_edge_numbers, __pyx_v_forbidden_edge_numbers) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":134
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_forbidden_graphs, __pyx_v_forbidden_graphs) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_forbidden_induced_graphs, __pyx_v_forbidden_induced_graphs) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":133
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ * 
+ */
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":132
+ * 
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.generate_flags", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "flagmatic/three_graph_flag.pyx":138
+ * 
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_13generate_graphs(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_13generate_graphs(PyObject *__pyx_v_cls, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_n = 0;
+  PyObject *__pyx_v_forbidden_edge_numbers = 0;
+  PyObject *__pyx_v_forbidden_graphs = 0;
+  PyObject *__pyx_v_forbidden_induced_graphs = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("generate_graphs (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_n,&__pyx_n_s_forbidden_edge_numbers,&__pyx_n_s_forbidden_graphs,&__pyx_n_s_forbidden_induced_graphs,0};
+    PyObject* values[4] = {0,0,0,0};
+    values[1] = ((PyObject *)Py_None);
+    values[2] = ((PyObject *)Py_None);
+    values[3] = ((PyObject *)Py_None);
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_edge_numbers);
+          if (value) { values[1] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_graphs);
+          if (value) { values[2] = value; kw_args--; }
+        }
+        CYTHON_FALLTHROUGH;
+        case  3:
+        if (kw_args > 0) {
+          PyObject* value = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_forbidden_induced_graphs);
+          if (value) { values[3] = value; kw_args--; }
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "generate_graphs") < 0)) __PYX_ERR(0, 138, __pyx_L3_error)
+      }
+    } else {
+      switch (PyTuple_GET_SIZE(__pyx_args)) {
+        case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+        CYTHON_FALLTHROUGH;
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+    }
+    __pyx_v_n = values[0];
+    __pyx_v_forbidden_edge_numbers = values[1];
+    __pyx_v_forbidden_graphs = values[2];
+    __pyx_v_forbidden_induced_graphs = values[3];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("generate_graphs", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 138, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.generate_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_12generate_graphs(((PyTypeObject*)__pyx_v_cls), __pyx_v_n, __pyx_v_forbidden_edge_numbers, __pyx_v_forbidden_graphs, __pyx_v_forbidden_induced_graphs);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_9flagmatic_16three_graph_flag_13FiveGraphFlag_12generate_graphs(PyTypeObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("generate_graphs", 0);
+
+  /* "flagmatic/three_graph_flag.pyx":139
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_v_cls)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_v_n);
+  __Pyx_GIVEREF(__pyx_v_n);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_n);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_r, __pyx_int_5) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_oriented, Py_False) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_edge_numbers, __pyx_v_forbidden_edge_numbers) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":140
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)             # <<<<<<<<<<<<<<
+ */
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_graphs, __pyx_v_forbidden_graphs) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_forbidden_induced_graphs, __pyx_v_forbidden_induced_graphs) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+
+  /* "flagmatic/three_graph_flag.pyx":139
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,             # <<<<<<<<<<<<<<
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "flagmatic/three_graph_flag.pyx":138
+ * 
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("flagmatic.three_graph_flag.FiveGraphFlag.generate_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2233,6 +3953,180 @@ static PyTypeObject __pyx_type_9flagmatic_16three_graph_flag_ThreeGraphFlag = {
   0, /*tp_finalize*/
   #endif
 };
+static struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_FourGraphFlag __pyx_vtable_9flagmatic_16three_graph_flag_FourGraphFlag;
+
+static PyObject *__pyx_tp_new_9flagmatic_16three_graph_flag_FourGraphFlag(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *p;
+  PyObject *o = __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag->tp_new(t, a, k);
+  if (unlikely(!o)) return 0;
+  p = ((struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag *)o);
+  p->__pyx_base.__pyx_vtab = (struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag*)__pyx_vtabptr_9flagmatic_16three_graph_flag_FourGraphFlag;
+  return o;
+}
+
+static void __pyx_tp_dealloc_9flagmatic_16three_graph_flag_FourGraphFlag(PyObject *o) {
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
+    if (PyObject_CallFinalizerFromDealloc(o)) return;
+  }
+  #endif
+  if (likely(__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag)) __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag->tp_dealloc(o); else __Pyx_call_next_tp_dealloc(o, __pyx_tp_dealloc_9flagmatic_16three_graph_flag_FourGraphFlag);
+}
+
+static PyMethodDef __pyx_methods_9flagmatic_16three_graph_flag_FourGraphFlag[] = {
+  {"__reduce__", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_3__reduce__, METH_NOARGS, 0},
+  {"description", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_5description, METH_NOARGS, 0},
+  {"default_density_graph", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_7default_density_graph, METH_NOARGS, 0},
+  {"max_number_edges", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_9max_number_edges, METH_O, 0},
+  {"generate_flags", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_11generate_flags, METH_VARARGS|METH_KEYWORDS, 0},
+  {"generate_graphs", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_13generate_graphs, METH_VARARGS|METH_KEYWORDS, 0},
+  {0, 0, 0, 0}
+};
+
+static PyTypeObject __pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "flagmatic.three_graph_flag.FourGraphFlag", /*tp_name*/
+  sizeof(struct __pyx_obj_9flagmatic_16three_graph_flag_FourGraphFlag), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_9flagmatic_16three_graph_flag_FourGraphFlag, /*tp_dealloc*/
+  0, /*tp_print*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
+  0, /*tp_doc*/
+  0, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  __pyx_methods_9flagmatic_16three_graph_flag_FourGraphFlag, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  __pyx_pw_9flagmatic_16three_graph_flag_13FourGraphFlag_1__init__, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_9flagmatic_16three_graph_flag_FourGraphFlag, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+};
+static struct __pyx_vtabstruct_9flagmatic_16three_graph_flag_FiveGraphFlag __pyx_vtable_9flagmatic_16three_graph_flag_FiveGraphFlag;
+
+static PyObject *__pyx_tp_new_9flagmatic_16three_graph_flag_FiveGraphFlag(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *p;
+  PyObject *o = __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag->tp_new(t, a, k);
+  if (unlikely(!o)) return 0;
+  p = ((struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag *)o);
+  p->__pyx_base.__pyx_vtab = (struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag*)__pyx_vtabptr_9flagmatic_16three_graph_flag_FiveGraphFlag;
+  return o;
+}
+
+static void __pyx_tp_dealloc_9flagmatic_16three_graph_flag_FiveGraphFlag(PyObject *o) {
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
+    if (PyObject_CallFinalizerFromDealloc(o)) return;
+  }
+  #endif
+  if (likely(__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag)) __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag->tp_dealloc(o); else __Pyx_call_next_tp_dealloc(o, __pyx_tp_dealloc_9flagmatic_16three_graph_flag_FiveGraphFlag);
+}
+
+static PyMethodDef __pyx_methods_9flagmatic_16three_graph_flag_FiveGraphFlag[] = {
+  {"__reduce__", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_3__reduce__, METH_NOARGS, 0},
+  {"description", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_5description, METH_NOARGS, 0},
+  {"default_density_graph", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_7default_density_graph, METH_NOARGS, 0},
+  {"max_number_edges", (PyCFunction)__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_9max_number_edges, METH_O, 0},
+  {"generate_flags", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_11generate_flags, METH_VARARGS|METH_KEYWORDS, 0},
+  {"generate_graphs", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_13generate_graphs, METH_VARARGS|METH_KEYWORDS, 0},
+  {0, 0, 0, 0}
+};
+
+static PyTypeObject __pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "flagmatic.three_graph_flag.FiveGraphFlag", /*tp_name*/
+  sizeof(struct __pyx_obj_9flagmatic_16three_graph_flag_FiveGraphFlag), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_9flagmatic_16three_graph_flag_FiveGraphFlag, /*tp_dealloc*/
+  0, /*tp_print*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  #if PY_MAJOR_VERSION < 3
+  0, /*tp_compare*/
+  #endif
+  #if PY_MAJOR_VERSION >= 3
+  0, /*tp_as_async*/
+  #endif
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
+  0, /*tp_doc*/
+  0, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  __pyx_methods_9flagmatic_16three_graph_flag_FiveGraphFlag, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  0, /*tp_dictoffset*/
+  __pyx_pw_9flagmatic_16three_graph_flag_13FiveGraphFlag_1__init__, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_9flagmatic_16three_graph_flag_FiveGraphFlag, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if PY_VERSION_HEX >= 0x030400a1
+  0, /*tp_finalize*/
+  #endif
+};
 
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
@@ -2282,6 +4176,12 @@ static struct PyModuleDef __pyx_moduledef = {
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_3_123, __pyx_k_3_123, sizeof(__pyx_k_3_123), 0, 0, 1, 0},
   {&__pyx_kp_s_3_graph, __pyx_k_3_graph, sizeof(__pyx_k_3_graph), 0, 0, 1, 0},
+  {&__pyx_kp_s_4_1234, __pyx_k_4_1234, sizeof(__pyx_k_4_1234), 0, 0, 1, 0},
+  {&__pyx_kp_s_4_graph, __pyx_k_4_graph, sizeof(__pyx_k_4_graph), 0, 0, 1, 0},
+  {&__pyx_kp_s_5_12345, __pyx_k_5_12345, sizeof(__pyx_k_5_12345), 0, 0, 1, 0},
+  {&__pyx_kp_s_5_graph, __pyx_k_5_graph, sizeof(__pyx_k_5_graph), 0, 0, 1, 0},
+  {&__pyx_n_s_FiveGraphFlag, __pyx_k_FiveGraphFlag, sizeof(__pyx_k_FiveGraphFlag), 0, 0, 1, 1},
+  {&__pyx_n_s_FourGraphFlag, __pyx_k_FourGraphFlag, sizeof(__pyx_k_FourGraphFlag), 0, 0, 1, 1},
   {&__pyx_n_s_ThreeGraphFlag, __pyx_k_ThreeGraphFlag, sizeof(__pyx_k_ThreeGraphFlag), 0, 0, 1, 1},
   {&__pyx_n_s_binomial, __pyx_k_binomial, sizeof(__pyx_k_binomial), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
@@ -2330,6 +4230,28 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_3_123); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
+
+  /* "flagmatic/three_graph_flag.pyx":87
+ *         @classmethod
+ *         def default_density_graph(cls):
+ *                 return cls("4:1234")             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_s_4_1234); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
+
+  /* "flagmatic/three_graph_flag.pyx":123
+ *         @classmethod
+ *         def default_density_graph(cls):
+ *                 return cls("5:12345")             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_5_12345); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2340,6 +4262,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_3 = PyInt_FromLong(3); if (unlikely(!__pyx_int_3)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_5 = PyInt_FromLong(5); if (unlikely(!__pyx_int_5)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -2398,6 +4322,28 @@ static int __Pyx_modinit_type_init_code(void) {
   if (__Pyx_SetVtable(__pyx_type_9flagmatic_16three_graph_flag_ThreeGraphFlag.tp_dict, __pyx_vtabptr_9flagmatic_16three_graph_flag_ThreeGraphFlag) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ThreeGraphFlag, (PyObject *)&__pyx_type_9flagmatic_16three_graph_flag_ThreeGraphFlag) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
   __pyx_ptype_9flagmatic_16three_graph_flag_ThreeGraphFlag = &__pyx_type_9flagmatic_16three_graph_flag_ThreeGraphFlag;
+  __pyx_vtabptr_9flagmatic_16three_graph_flag_FourGraphFlag = &__pyx_vtable_9flagmatic_16three_graph_flag_FourGraphFlag;
+  __pyx_vtable_9flagmatic_16three_graph_flag_FourGraphFlag.__pyx_base = *__pyx_vtabptr_9flagmatic_15hypergraph_flag_HypergraphFlag;
+  __pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag.tp_base = __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag;
+  if (PyType_Ready(&__pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag.tp_dictoffset && __pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  }
+  if (__Pyx_SetVtable(__pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag.tp_dict, __pyx_vtabptr_9flagmatic_16three_graph_flag_FourGraphFlag) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FourGraphFlag, (PyObject *)&__pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag = &__pyx_type_9flagmatic_16three_graph_flag_FourGraphFlag;
+  __pyx_vtabptr_9flagmatic_16three_graph_flag_FiveGraphFlag = &__pyx_vtable_9flagmatic_16three_graph_flag_FiveGraphFlag;
+  __pyx_vtable_9flagmatic_16three_graph_flag_FiveGraphFlag.__pyx_base = *__pyx_vtabptr_9flagmatic_15hypergraph_flag_HypergraphFlag;
+  __pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag.tp_base = __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag;
+  if (PyType_Ready(&__pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag.tp_dictoffset && __pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  }
+  if (__Pyx_SetVtable(__pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag.tp_dict, __pyx_vtabptr_9flagmatic_16three_graph_flag_FiveGraphFlag) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FiveGraphFlag, (PyObject *)&__pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag) < 0) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag = &__pyx_type_9flagmatic_16three_graph_flag_FiveGraphFlag;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2792,6 +4738,246 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_ThreeGraphFlag->tp_dict, __pyx_n_s_generate_graphs, __pyx_t_1) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_ThreeGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":82
+ * 
+ *         @classmethod
+ *         def description(cls):             # <<<<<<<<<<<<<<
+ *                 return "4-graph"
+ * 
+ */
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag, __pyx_n_s_description); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+
+  /* "flagmatic/three_graph_flag.pyx":81
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def description(cls):
+ *                 return "4-graph"
+ */
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag->tp_dict, __pyx_n_s_description, __pyx_t_2) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":86
+ * 
+ *         @classmethod
+ *         def default_density_graph(cls):             # <<<<<<<<<<<<<<
+ *                 return cls("4:1234")
+ * 
+ */
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag, __pyx_n_s_default_density_graph); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "flagmatic/three_graph_flag.pyx":85
+ *                 return "4-graph"
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def default_density_graph(cls):
+ *                 return cls("4:1234")
+ */
+  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag->tp_dict, __pyx_n_s_default_density_graph, __pyx_t_1) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":91
+ * 
+ *         @classmethod
+ *         def max_number_edges(cls, n):             # <<<<<<<<<<<<<<
+ *                 return binomial(n, 4)
+ * 
+ */
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag, __pyx_n_s_max_number_edges); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+
+  /* "flagmatic/three_graph_flag.pyx":90
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def max_number_edges(cls, n):
+ *                 return binomial(n, 4)
+ */
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag->tp_dict, __pyx_n_s_max_number_edges, __pyx_t_2) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":96
+ * 
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag, __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "flagmatic/three_graph_flag.pyx":95
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ */
+  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag->tp_dict, __pyx_n_s_generate_flags, __pyx_t_1) < 0) __PYX_ERR(0, 96, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":102
+ * 
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag, __pyx_n_s_generate_graphs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+
+  /* "flagmatic/three_graph_flag.pyx":101
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ */
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag->tp_dict, __pyx_n_s_generate_graphs, __pyx_t_2) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FourGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":118
+ * 
+ *         @classmethod
+ *         def description(cls):             # <<<<<<<<<<<<<<
+ *                 return "5-graph"
+ * 
+ */
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag, __pyx_n_s_description); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "flagmatic/three_graph_flag.pyx":117
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def description(cls):
+ *                 return "5-graph"
+ */
+  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag->tp_dict, __pyx_n_s_description, __pyx_t_1) < 0) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":122
+ * 
+ *         @classmethod
+ *         def default_density_graph(cls):             # <<<<<<<<<<<<<<
+ *                 return cls("5:12345")
+ * 
+ */
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag, __pyx_n_s_default_density_graph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+
+  /* "flagmatic/three_graph_flag.pyx":121
+ *                 return "5-graph"
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def default_density_graph(cls):
+ *                 return cls("5:12345")
+ */
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag->tp_dict, __pyx_n_s_default_density_graph, __pyx_t_2) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":127
+ * 
+ *         @classmethod
+ *         def max_number_edges(cls, n):             # <<<<<<<<<<<<<<
+ *                 return binomial(n, 5)
+ * 
+ */
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag, __pyx_n_s_max_number_edges); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "flagmatic/three_graph_flag.pyx":126
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def max_number_edges(cls, n):
+ *                 return binomial(n, 5)
+ */
+  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag->tp_dict, __pyx_n_s_max_number_edges, __pyx_t_1) < 0) __PYX_ERR(0, 127, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":132
+ * 
+ *         @classmethod
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag, __pyx_n_s_generate_flags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+
+  /* "flagmatic/three_graph_flag.pyx":131
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ */
+  __pyx_t_2 = __Pyx_Method_ClassMethod(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag->tp_dict, __pyx_n_s_generate_flags, __pyx_t_2) < 0) __PYX_ERR(0, 132, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag);
+
+  /* "flagmatic/three_graph_flag.pyx":138
+ * 
+ *         @classmethod
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):             # <<<<<<<<<<<<<<
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ *                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+ */
+  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag, __pyx_n_s_generate_graphs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 138, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+
+  /* "flagmatic/three_graph_flag.pyx":137
+ * 
+ * 
+ *         @classmethod             # <<<<<<<<<<<<<<
+ *         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+ *                 return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+ */
+  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag->tp_dict, __pyx_n_s_generate_graphs, __pyx_t_1) < 0) __PYX_ERR(0, 138, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  PyType_Modified(__pyx_ptype_9flagmatic_16three_graph_flag_FiveGraphFlag);
 
   /* "flagmatic/three_graph_flag.pyx":1
  * """             # <<<<<<<<<<<<<<

@@ -1233,7 +1233,7 @@ cdef class HypergraphFlag (Flag):
                         if all([e[i] in vertices for i in range(self._r)]):
                                 vs = []
                                 for i in range(self._r):
-                                        vs.append(vertices.index(e[j]) + 1)
+                                        vs.append(vertices.index(e[i]) + 1)
                                 non_degenerate = True
                                 for i in range(self._r):
                                         for j in range(i+1, self._r):

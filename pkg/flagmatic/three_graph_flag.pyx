@@ -66,3 +66,75 @@ cdef class ThreeGraphFlag (HypergraphFlag):
         def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
                 return HypergraphFlag.generate_flags(n, cls(), r=3, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
                         forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+
+cdef class FourGraphFlag (HypergraphFlag):
+
+
+        def __init__(self, representation=None):
+                super(FourGraphFlag, self).__init__(representation=representation, r=4, oriented=False)
+
+
+        def __reduce__(self):
+                return (type(self), (self._repr_(),))
+
+
+        @classmethod
+        def description(cls):
+                return "4-graph"
+
+        @classmethod
+        def default_density_graph(cls):
+                return cls("4:1234")
+
+
+        @classmethod
+        def max_number_edges(cls, n):
+                return binomial(n, 4)
+
+
+        @classmethod
+        def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+                return HypergraphFlag.generate_flags(n, tg, r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+                        forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+
+
+        @classmethod
+        def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+                return HypergraphFlag.generate_flags(n, cls(), r=4, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+                        forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+
+cdef class FiveGraphFlag (HypergraphFlag):
+
+
+        def __init__(self, representation=None):
+                super(FiveGraphFlag, self).__init__(representation=representation, r=5, oriented=False)
+
+
+        def __reduce__(self):
+                return (type(self), (self._repr_(),))
+
+
+        @classmethod
+        def description(cls):
+                return "5-graph"
+
+        @classmethod
+        def default_density_graph(cls):
+                return cls("5:12345")
+
+
+        @classmethod
+        def max_number_edges(cls, n):
+                return binomial(n, 5)
+
+
+        @classmethod
+        def generate_flags(cls, n, tg, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+                return HypergraphFlag.generate_flags(n, tg, r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+                        forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)
+
+
+        @classmethod
+        def generate_graphs(cls, n, forbidden_edge_numbers=None, forbidden_graphs=None, forbidden_induced_graphs=None):
+                return HypergraphFlag.generate_flags(n, cls(), r=5, oriented=False, forbidden_edge_numbers=forbidden_edge_numbers,
+                        forbidden_graphs=forbidden_graphs, forbidden_induced_graphs=forbidden_induced_graphs)

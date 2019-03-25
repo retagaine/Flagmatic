@@ -1,0 +1,86 @@
+{
+    "admissible_graphs": [
+        "6:", 
+        "6:12345", 
+        "6:1234512346", 
+        "6:123451234612356", 
+        "6:12345123461235612456"
+    ], 
+    "description": "5-graph; maximize 6:12345123461235612456 density; forbid induced 6.5, induced 6.6", 
+    "number_of_admissible_graphs": 5, 
+    "bound": "14157241/15728640", 
+    "types": [
+        "0:", 
+        "2:", 
+        "4:"
+    ], 
+    "number_of_types": 3, 
+    "admissible_graph_densities": [
+        0, 
+        0, 
+        0, 
+        0, 
+        1
+    ], 
+    "numbers_of_flags": [
+        1, 
+        1, 
+        2
+    ], 
+    "flags": [
+        [
+            "3:"
+        ], 
+        [
+            "4:(2)"
+        ], 
+        [
+            "5:(4)", 
+            "5:12345(4)"
+        ]
+    ], 
+    "order_of_admissible_graphs": 6, 
+    "qdash_matrices": [
+        [
+            [
+                1
+            ]
+        ], 
+        [
+            [
+                1
+            ]
+        ], 
+        [
+            [
+                1, 
+                0
+            ], 
+            [
+                1
+            ]
+        ]
+    ], 
+    "r_matrices": [
+        [
+            [
+                0
+            ]
+        ], 
+        [
+            [
+                0
+            ]
+        ], 
+        [
+            [
+                "971/1024", 
+                0
+            ], 
+            [
+                "-81/128", 
+                0
+            ]
+        ]
+    ]
+}

@@ -1577,6 +1577,7 @@ class Problem(SageObject):
 
         p.close()
         self._sdp_solver_returncode = p.exitstatus
+        self._objective_value = obj_val
 
         sys.stdout.write("Returncode is %d. Objective value is %s.\n" % (
             self._sdp_solver_returncode, obj_val))
