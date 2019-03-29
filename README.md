@@ -1,5 +1,7 @@
 
-Emil's flagmatic with changed setup.py and extra install-2-flagmatic file for simple repeated installation.
+Emil's flagmatic with changed setup.py and extra install-2-flagmatic file for simple repeated installation. There are some files which I used to find Turan densities for my senior thesis. These are the notebooks Blowups/2, Hypergraph/2, and Playing around (for testing more than anything).
+
+Certificates for hypergraph Turan densities are in certs, as well as Turan density lower bounds.
 
 
 Flagmatic 2.0
